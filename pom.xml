@@ -87,7 +87,14 @@
                 </configuration>
             </plugin>
         </plugins>
-
+        <extensions>
+            <!-- Enabling the use of SSH -->
+            <extension>
+                <groupId>org.apache.maven.wagon</groupId>
+                <artifactId>wagon-ssh-external</artifactId>
+                <version>1.0-beta-6</version>
+            </extension>
+        </extensions>
     </build>
 
     <properties>
@@ -96,5 +103,11 @@
 
     </properties>
 
+    <distributionManagement>
+        <repository>
+            <id>ssh-repository</id>
+            <url>scpexe://microavia.com/var/www/maven</url>
+        </repository>
+    </distributionManagement>
 </project>
 
